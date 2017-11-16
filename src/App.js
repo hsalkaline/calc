@@ -13,7 +13,13 @@ class App extends Component {
         this.state = {
             userInput1: '',
             userInput2: '',
-            sum: '0'
+            sum: '0',
+            dif: '0',
+            mult: '0',
+            div: '0',
+            deg: '0',
+            root: '0'
+
         };
     }
 
@@ -29,10 +35,13 @@ class App extends Component {
         });
     };
 
-    calc = () => {
+    onClick = () => {
         this.setState({ sum: +this.state.userInput1 + +this.state.userInput2 });
+        this.setState({ dif: +this.state.userInput1 - +this.state.userInput2 });
+        this.setState({ mult: +this.state.userInput1 * +this.state.userInput2 });
+        this.setState({ div: +this.state.userInput1 / +this.state.userInput2 });
     };
-
+    
     render() {
         return (
             <div className="App">
@@ -50,12 +59,15 @@ class App extends Component {
 
                 </form>
                 <p>
-                    <button onClick={this.calc}>
-                        Sum
+                    <button onClick={this.onClick}>
+                        Calculation
                     </button>
                 </p>
                 <h1>
-                    {this.state.sum}
+                   Sum: {this.state.sum}
+                   Dif:{this.state.dif}
+                    Mult:{this.state.mult}
+                    Div:{this.state.div}
                 </h1>
             </div>
         );
