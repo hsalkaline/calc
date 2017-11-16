@@ -17,7 +17,7 @@ class App extends Component {
             dif: '0',
             mult: '0',
             div: '0',
-            deg: '0',
+            pow: '0',
             root: '0'
 
         };
@@ -40,8 +40,10 @@ class App extends Component {
         this.setState({ dif: +this.state.userInput1 - +this.state.userInput2 });
         this.setState({ mult: +this.state.userInput1 * +this.state.userInput2 });
         this.setState({ div: +this.state.userInput1 / +this.state.userInput2 });
+        this.setState({ pow: Math.pow( +this.state.userInput1 , +this.state.userInput2 )});
+        this.setState({ root: Math.pow( +this.state.userInput1 , 1/+this.state.userInput2 )});
     };
-    
+
     render() {
         return (
             <div className="App">
@@ -65,9 +67,21 @@ class App extends Component {
                 </p>
                 <h1>
                    Sum: {this.state.sum}
+                </h1>
+                <h1>
                    Dif:{this.state.dif}
+                </h1>
+                 <h1>
                     Mult:{this.state.mult}
+                </h1>
+                <h1>
                     Div:{this.state.div}
+               </h1>
+                <h1>
+                    Pow: {this.state.pow}
+                </h1>
+                 <h1>
+                    Root: {this.state.root}
                 </h1>
             </div>
         );
